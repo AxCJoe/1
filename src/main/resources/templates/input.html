@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" href="../static/css/bootstrap-theme.css">
+</head>
+<body>
+<div class="container" style="max-width: 700px;margin-top:50px;">
+  <h2 class="page-header">书单列表</h2>
+
+  <div class="well">
+  <form action="/book13" th:action="@{/book13}" th:object="${book}" method="post">
+    <input type="hidden" th:value="*{id}" name="id">
+
+      <div class="form-group">
+        <label for="nameId">书名</label>
+        <input type="text" name="name" id="nameId" class="form-container" th:field="*{name}">
+      </div>
+
+    <div class="form-group">
+      <label for="authorId">作者</label>
+      <input type="text" name="author" id="authorId" class="form-container" th:field="*{author}">
+    </div>
+
+    <div class="form-group">
+      <label for="descriptionId">说明</label>
+      <input type="text" name="description" id="descriptionId" class="form-container" th:field="*{description}">
+    </div>
+
+    <div class="form-group">
+      <label for="statusId">状态</label>
+      <select name="status" id="statusId">
+        <option value="0" th:selected="(*{status}=='0')">想读</option>
+        <option value="1" th:selected="(*{status}=='1')">在读</option>
+        <option value="2" th:selected="(*{status}=='2')">已读</option>
+      </select>
+    </div>
+
+    <p class="text-center">
+
+      <button type="submit" class="btn btn-primary">提交</button>
+    </p>
+
+    </form>
+
+    <a href="javascript:history.go(-1)" class="btn btn-default">返回</a>
+
+</div>
+</div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script th:src="@{/js/bootstrap.min.js}" src="../static/js/bootstrap.min.js"></script>
+</body>
+
+</html>
